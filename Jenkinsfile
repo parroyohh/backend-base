@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    environment{
+    environment {
         NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
     }
     stages{
@@ -8,10 +8,11 @@ pipeline {
             agent {
                 docker {
                     image 'node:alpine3.20'
+                    reuseNode true
                 }
             }
             stages{
-                stages("install"){
+                stage("install"){
                     steps{
                         sh 'npm install'
                     }
