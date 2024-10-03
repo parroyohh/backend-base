@@ -4,7 +4,7 @@ pipeline {
         stage('etapa de construccion de aplicacion'){
             agent {
                 docker {
-                    image 'node:alpile3.20'
+                    image 'node:alpine3.20'
                 }
             }
             stages{
