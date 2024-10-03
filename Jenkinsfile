@@ -34,8 +34,9 @@ pipeline {
                     steps{
                         script{
                             sh 'docker build -t app'
-                            sh 'docker tag app:latest app:1.0'
-                    }
-                }
+                            sh 'docker tag  backend-base us-central1-docker.pkg.dev/expertis-classroom/docker-repository/backend-base:paah'
+                        }
+                   }
+        }
     }
 }
