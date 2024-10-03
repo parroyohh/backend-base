@@ -29,5 +29,13 @@ pipeline {
                 }
             }
         }
+        satages {
+        stage("construccion de imagen"){
+                    steps{
+                        script{
+                            sh 'docker build -t app'
+                            sh 'docker tag app:latest app:1.0'
+                    }
+                }
     }
 }
