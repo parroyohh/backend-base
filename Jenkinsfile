@@ -29,7 +29,7 @@ pipeline {
                 }
             }
         }
-        satages {
+        stages {
         stage("construccion de imagen"){
            steps{
               script{
@@ -40,3 +40,4 @@ pipeline {
         }
     }
 }
+
