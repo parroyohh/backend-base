@@ -1,0 +1,15 @@
+pipeline{
+
+    agent any
+
+    stages{
+        stage('esta 1'){
+            steps{
+                echo 'Hola Paulo desde consola jenkins'
+                sh 'echo "'Hola Paulo desde el terminal"'
+                }
+            }
+
+        }
+            
+}
