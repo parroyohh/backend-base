@@ -17,27 +17,25 @@ pipeline {
                         sh 'npm install'
                     }
                 }
-            stage("test"){
+                stage("test"){
                     steps{
                         sh 'npm run test'
                     }
                 }
-            stage("build"){
+                stage("build"){
                     steps{
                         sh 'npm run build'
                     }
                 }
             }
         }
-    }
-        stages {
-            stage('construccion imagen docker'){
+        stage('construccion imagen docker'){
             steps{
                 script{
                     docker.withRegistry("https://us-central1-docker.pkg.dev",'gcp-registry'){
                         sh 'docker build -t backend-base .'
-                        sh 'docker tag backend-base us-central1-docker.pkg.dev/expertis-classroom/docker-repository/backend-base:cmd'
-                        sh 'docker push us-central1-docker.pkg.dev/expertis-classroom/docker-repository/backend-base:cmd'
+                        sh 'docker tag backend-base us-central1-docker.pkg.dev/expertis-classroom/docker-repository/backend-base:paah'
+                        sh 'docker push us-central1-docker.pkg.dev/expertis-classroom/docker-repository/backend-base:paah'
                     }
                 }
             }
