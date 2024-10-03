@@ -1,10 +1,18 @@
 pipeline {
     agent any
     stages{
-        stage('etapa 1'){
-            steps{
-                echo 'Hola Mundo desde consola de jenkins'
-                sh 'echo "Hola Mundo desde el terminal"'
+        stage('etapa de construccion de aplicacion'){
+            agent {
+                docker {
+                    image 'node:alpile3.20'
+                }
+            }
+            stages{
+                stages("install"){
+                    steps{
+                        sh 'npm install'
+                    }
+                }
             }
         }
     }
