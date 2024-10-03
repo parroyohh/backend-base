@@ -31,14 +31,15 @@ pipeline {
         }
     }
         stages {
-        stage("construccion de imagen"){
-           steps{
-              script{
-                  sh 'docker build -t app'
-                  sh 'docker tag  backend-base us-central1-docker.pkg.dev/expertis-classroom/docker-repository/backend-base:paah'
-              }
-           }
+            stage('construccion imagen docker'){
+            steps{
+                script{
+                    docker.withRegistry("https://us-central1-docker.pkg.dev",'gcp-registry'){
+                        sh 'docker build -t backend-base .'
+                        sh 'docker tag backend-base us-central1-docker.pkg.dev/expertis-classroom/docker-repository/backend-base:cmd'
+                        sh 'docker push us-central1-docker.pkg.dev/expertis-classroom/docker-repository/backend-base:cmd'
+                    }
+                }
+            }
         }
-    }
-}
 
