@@ -31,12 +31,12 @@ pipeline {
         }
         satages {
         stage("construccion de imagen"){
-                    steps{
-                        script{
-                            sh 'docker build -t app'
-                            sh 'docker tag  backend-base us-central1-docker.pkg.dev/expertis-classroom/docker-repository/backend-base:paah'
-                        }
-                   }
+           steps{
+              script{
+                  sh 'docker build -t app'
+                  sh 'docker tag  backend-base us-central1-docker.pkg.dev/expertis-classroom/docker-repository/backend-base:paah'
+              }
+           }
         }
     }
 }
